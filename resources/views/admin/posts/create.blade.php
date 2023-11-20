@@ -15,7 +15,7 @@
         </ul>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <form action="{{route('admin.posts.store')}}">
+    <form action="{{route('admin.posts.store')}}" method="POST">
 		@method('POST')
 		@csrf
         <div class="mb-3">
