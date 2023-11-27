@@ -21,7 +21,12 @@ class AdminPostsController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'content' => 'required',
+            'is_feature' => 'required|boolean',
+        ]);
+
 		Post::create($request->all());
 		return redirect()->route('admin.posts.index');
     }
@@ -36,7 +41,12 @@ class AdminPostsController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'content' => 'required',
+            'is_feature' => 'required|boolean',
+        ]);
+
 		$post->update($request->all());
 		return redirect()->route('admin.posts.index');
     }
